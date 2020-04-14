@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Forma</string>
+    <string-array name="spinner_array_1" >
+        <item>Suns</item>
+        <item>Kaķis</item>
+        <item>Cits</item>
+    </string-array>
+    <string-array name="spinner_array_2" >
+        <item>Puisis</item>
+        <item>Meitene</item>
+    </string-array>
+</resources>
