@@ -11,10 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -148,5 +145,23 @@ public class MainActivity extends AppCompatActivity {
                 "\n" + myPet.getAddress() + "\n" + myPet.getPhoneNr());
 
         builder.show();
+
+        myPet.saveAsJsonFile(getApplicationContext());
+    }
+
+    public void ReadJson(View view) {
+        Log.d(TAG , "  ReadJson :");
+        Pet[] myPets;
+        myPets = Pet.getMyPets(getApplicationContext());
+        if(myPet == null){
+            Log.d(TAG , "  ReadJson : Pet.getMyPets returned null");
+            return;
+        }
+
+        for (Pet myPet : myPets) {
+            Log.d(TAG , "  ReadJson :" + myPet.getPetName() + " " + myPet.getPetType() + " " + myPet.getPetBreed() +
+                    " " + myPet.getPetAge() + " " + myPet.getPetGender() + " " + myPet.getCity() +
+                    " " + myPet.getAddress() + " " + myPet.getPhoneNr());
+        }
     }
 }
