@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void SaveData(View view) { ;
+    public void SaveData(View view) {
 
         String petName;
         String petBreed;
@@ -150,10 +150,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void ReadJson(View view) {
-        Log.d(TAG , "  ReadJson :");
+        Log.d(TAG , "  ReadJson : start");
         Pet[] myPets;
         myPets = Pet.getMyPets(getApplicationContext());
-        if(myPet == null){
+        if(myPets == null){
             Log.d(TAG , "  ReadJson : Pet.getMyPets returned null");
             return;
         }
