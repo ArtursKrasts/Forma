@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -94,9 +95,12 @@ public class Pet {
         }
         myPets.add(myPet);
 
+        gson = new GsonBuilder().setPrettyPrinting().create();
+        json = gson.toJson(myPets);
+
         try {
             FileWriter file = new FileWriter(context.getFilesDir() + "/" + FILE_NAME);
-            file.write(String.valueOf(myPets));
+            file.write(json);
             file.flush();
             Log.d(TAG , " saveAsJsonFile: Json saved at : " + context.getFilesDir() + "/" + FILE_NAME);
         } catch (IOException e) {
